@@ -36,7 +36,7 @@ The topics covered will include:
 
 Go to https://www.continuum.io/downloads and follow the instructions.
 
-Go to ???,  download the ZIP and unpack it to a convenient location.
+Go to https://github.com/mortcanty/ZFLPython,  download the ZIP and unpack it to a convenient location.
 
 CD into the subdirectory ZFLPython and run
 
