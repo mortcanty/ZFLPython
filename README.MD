@@ -31,3 +31,17 @@ The topics covered will include:
     =  Programming the Google Earth Engine with the Python API
     
     =  Example scripts: PCA, Classification, Clustering, MAD ...
+    
+## Installing Anaconda2 and the Course Material
+
+Go to https://www.continuum.io/downloads and follow the instructions.
+
+Go to ???,  download the ZIP and unpack it to a convenient location.
+
+CD into the subdirectory ZFLPython and run
+
+**Jupyter Notebook**
+
+from the command line. Open this Notebook 
+
+**CourseNotebook.ipynb**.    
