@@ -134,7 +134,7 @@ def main():
             outBand = outDataset.GetRasterBand(k+1)
             outBand.WriteArray(GRs[:,:,k],0,0) 
             outBand.FlushCache() 
-        print 'Reconstruction wrriten to: %s'%outfile1        
+        print 'Reconstruction writen to: %s'%outfile1        
     outDataset = None    
     inDataset = None           
     print 'elapsed time: %s'%str(time.time()-start) 

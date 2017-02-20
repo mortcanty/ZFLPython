@@ -24,7 +24,7 @@ The topics covered will include:
     
     =  GDAL (Geospatial Data Abstraction Library), reading and writing imagery
     
-    =  Integrated Development Environments: IDLE, Eclipse, IPython   
+    =  Integrated Development Environments: IDLE, Eclipse, IPython    
     
     =  Graphics with MatPlotLib (mathematical graphics library) 
     
