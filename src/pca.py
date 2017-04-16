@@ -21,33 +21,12 @@ from osgeo import gdal
 import matplotlib.pyplot as plt
 from osgeo.gdalconst import GA_ReadOnly,GDT_Float32
 
-def main(): 
-    usage = '''Usage: python %s [-h] [-r N] [-n] [-d dims] [-p pos] fileName\n
-            spatial and spectral dimensions are lists, e.g., -d [0,0,400,400] \n
-            use -r N to reconstuct image with first N pcs, use -n to disable graphics output'''%sys.argv[0]
-    options,args = getopt.getopt(sys.argv[1:],'hr:nd:p:')
-    dims = None
-    pos = None
-    graphics = True
-    recon = 0
-    for option, value in options: 
-        if option == '-h':
-            print usage
-            return 
-        elif option == '-n':
-            graphics = False
-        elif option == '-r':
-            recon = eval(value)          
-        elif option == '-d':
-            dims = eval(value)  
-        elif option == '-p':
-            pos = eval(value)
-    gdal.AllRegister()
-    infile = args[0] 
+def pca(infile, dims=None, pos=None, recon=0, graphics=True):    
     path = os.path.dirname(infile)
     basename = os.path.basename(infile)
     root, ext = os.path.splitext(basename)
     outfile = path+'/'+root+'_pca'+ext  
+    gdal.AllRegister()
     outfile1 = path+'/'+root+'_recon'+ext  
     print '------------PCA ---------------'
     print time.asctime()     
@@ -140,4 +119,28 @@ def main():
     print 'elapsed time: %s'%str(time.time()-start) 
      
 if __name__ == '__main__':
-    main()    
+    
+    usage = '''Usage: python %s [-h] [-r N] [-n] [-d dims] [-p pos] fileName\n
+            spatial and spectral dimensions are lists, e.g., -d [0,0,400,400] \n
+            use -r N to reconstuct image with first N pcs, use -n to disable graphics output'''%sys.argv[0]
+            
+    options,args = getopt.getopt(sys.argv[1:],'hr:nd:p:')
+    dims = None
+    pos = None
+    graphics = True
+    recon = 0
+    for option, value in options: 
+        if option == '-h':
+            print usage
+            sys.exit(0)
+        elif option == '-n':
+            graphics = False
+        elif option == '-r':
+            recon = eval(value)          
+        elif option == '-d':
+            dims = eval(value)  
+        elif option == '-p':
+            pos = eval(value)   
+    infile = args[0] 
+    pca(infile,dims,pos,recon,graphics)
+    
